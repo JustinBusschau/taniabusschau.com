@@ -3,22 +3,22 @@ import Title from '../Title'
 import { ContactFormWrapper } from '../../css'
 import { emailStrings } from './ContactStrings'
 import validator from 'validator'
-import { gql, useMutation } from '@apollo/client'
+// import { gql, useMutation } from '@apollo/client'
 // import gql from 'graphql-tag'
 
-export const REGISTER_VISITOR_INTEREST = gql`
-  mutation addVisitorDetails(
-    $name: String!
-    $email: String!
-    $message: String
-  ) {
-    addVisitorDetails(name: $name, email: $email, message: $message) {
-      code
-      success
-      message
-    }
-  }
-`
+// export const REGISTER_VISITOR_INTEREST = gql`
+//   mutation addVisitorDetails(
+//     $name: String!
+//     $email: String!
+//     $message: String
+//   ) {
+//     addVisitorDetails(name: $name, email: $email, message: $message) {
+//       code
+//       success
+//       message
+//     }
+//   }
+// `
 
 const ContactForm = () => {
   const [name, setName] = useState('')
@@ -33,23 +33,23 @@ const ContactForm = () => {
     setEmail(email)
   }
 
-  const [addVisitorDetails] = useMutation(REGISTER_VISITOR_INTEREST, {
-    variables: { name: name, email: email, message: message },
-    onCompleted: (data) => {
-      console.log(`onCompleted: ${data}`)
-      setName('')
-      setEmail('')
-      setMessage('')
-    },
-    onError: (error) => {
-      console.log(`onError: ${error}`)
-    },
-  })
+  // const [addVisitorDetails] = useMutation(REGISTER_VISITOR_INTEREST, {
+  //   variables: { name: name, email: email, message: message },
+  //   onCompleted: (data) => {
+  //     console.log(`onCompleted: ${data}`)
+  //     setName('')
+  //     setEmail('')
+  //     setMessage('')
+  //   },
+  //   onError: (error) => {
+  //     console.log(`onError: ${error}`)
+  //   },
+  // })
 
   const handleSubmit = (e) => {
     e.preventDefault()
     console.log(`${name}, ${email}, ${message}`)
-    addVisitorDetails(name, email, message)
+    // addVisitorDetails(name, email, message)
   }
 
   return (
