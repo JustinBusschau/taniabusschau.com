@@ -38,7 +38,7 @@ exports.createPages = async ({ graphql, actions }) => {
   const artworksPerPage = parseInt(process.env.ITEMS_PER_PAGE)
   const numGalleryPages = Math.ceil(artworks.length / artworksPerPage)
 
-  Array.from({ length: numGalleryPages }).forEach((_, i) => {
+  for (let i = 0; i < numGalleryPages; i++) {
     createPage({
       path: i === 0 ? `/artworks` : `/artworks/${i + 1}`,
       component: path.resolve('./src/templates/artwork-list-template.js'),
@@ -49,7 +49,7 @@ exports.createPages = async ({ graphql, actions }) => {
         currentPage: i + 1,
       },
     })
-  })
+  }
 
   data.exhibitions.edges.forEach(({ node }) => {
     createPage({
@@ -65,7 +65,7 @@ exports.createPages = async ({ graphql, actions }) => {
   const exhibitionsPerPage = parseInt(process.env.ITEMS_PER_PAGE)
   const numExhibitionPages = Math.ceil(exhibitions.length / exhibitionsPerPage)
 
-  Array.from({ length: numExhibitionPages }).forEach((_, i) => {
+  for (let i = 0; i < numExhibitionPages; i++) {
     createPage({
       path: i === 0 ? `/exhibitions` : `/exhibitions/${i + 1}`,
       component: path.resolve('./src/templates/exhibition-list-template.js'),
@@ -76,5 +76,5 @@ exports.createPages = async ({ graphql, actions }) => {
         currentPage: i + 1,
       },
     })
-  })
+  }
 }
