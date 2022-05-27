@@ -1,53 +1,80 @@
 const path = require('path')
 
-exports.createPages = async ({ graphql, actions, reporter }) => {
+exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions
 
-  // Define a template for blog post
-  const blogPost = path.resolve('./src/templates/blog-post.js')
-
-  const result = await graphql(
-    `
-      {
-        allContentfulBlogPost {
-          nodes {
-            title
+  const { data } = await graphql(`
+    query {
+      artworks: allContentfulArtwork {
+        edges {
+          node {
+            id: contentful_id
             slug
           }
         }
       }
-    `
-  )
+      exhibitions: allContentfulExhibition {
+        edges {
+          node {
+            id: contentful_id
+            slug
+          }
+        }
+      }
+    }
+  `)
 
-  if (result.errors) {
-    reporter.panicOnBuild(
-      `There was an error loading your Contentful posts`,
-      result.errors
-    )
-    return
-  }
-
-  const posts = result.data.allContentfulBlogPost.nodes
-
-  // Create blog posts pages
-  // But only if there's at least one blog post found in Contentful
-  // `context` is available in the template as a prop and as a variable in GraphQL
-
-  if (posts.length > 0) {
-    posts.forEach((post, index) => {
-      const previousPostSlug = index === 0 ? null : posts[index - 1].slug
-      const nextPostSlug =
-        index === posts.length - 1 ? null : posts[index + 1].slug
-
-      createPage({
-        path: `/blog/${post.slug}/`,
-        component: blogPost,
-        context: {
-          slug: post.slug,
-          previousPostSlug,
-          nextPostSlug,
-        },
-      })
+  data.artworks.edges.forEach(({ node }) => {
+    createPage({
+      path: `/artwork/${node.slug}`,
+      component: path.resolve('./src/templates/artwork-template.js'),
+      context: {
+        id: node.id,
+      },
     })
-  }
+  })
+
+  const artworks = data.artworks.edges
+  const artworksPerPage = parseInt(process.env.ITEMS_PER_PAGE)
+  const numGalleryPages = Math.ceil(artworks.length / artworksPerPage)
+
+  Array.from({ length: numGalleryPages }).forEach((_, i) => {
+    createPage({
+      path: i === 0 ? `/artworks` : `/artworks/${i + 1}`,
+      component: path.resolve('./src/templates/artwork-list-template.js'),
+      context: {
+        limit: artworksPerPage,
+        skip: i * artworksPerPage,
+        numGalleryPages,
+        currentPage: i + 1,
+      },
+    })
+  })
+
+  data.exhibitions.edges.forEach(({ node }) => {
+    createPage({
+      path: `/exhibition/${node.slug}`,
+      component: path.resolve('./src/templates/exhibition-template.js'),
+      context: {
+        id: node.id,
+      },
+    })
+  })
+
+  const exhibitions = data.exhibitions.edges
+  const exhibitionsPerPage = parseInt(process.env.ITEMS_PER_PAGE)
+  const numExhibitionPages = Math.ceil(exhibitions.length / exhibitionsPerPage)
+
+  Array.from({ length: numExhibitionPages }).forEach((_, i) => {
+    createPage({
+      path: i === 0 ? `/exhibitions` : `/exhibitions/${i + 1}`,
+      component: path.resolve('./src/templates/exhibition-list-template.js'),
+      context: {
+        limit: exhibitionsPerPage,
+        skip: i * exhibitionsPerPage,
+        numExhibitionPages,
+        currentPage: i + 1,
+      },
+    })
+  })
 }
