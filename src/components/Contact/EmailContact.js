@@ -37,6 +37,9 @@ const ContactForm = () => {
     variables: { name: name, email: email, message: message },
     onCompleted: (data) => {
       console.log(`onCompleted: ${data}`)
+      setName('')
+      setEmail('')
+      setMessage('')
     },
     onError: (error) => {
       console.log(`onError: ${error}`)
@@ -60,6 +63,7 @@ const ContactForm = () => {
           className="formControl"
           placeholder={emailStrings.namePlaceholder}
           onChange={(e) => setName(e.target.value)}
+          value={name}
         />
       </div>
       <div>
@@ -71,6 +75,7 @@ const ContactForm = () => {
           className="formControl"
           placeholder={emailStrings.emailPlaceholder}
           onChange={(e) => validateEmail(e)}
+          value={email}
         />
       </div>
       <div>
@@ -82,6 +87,7 @@ const ContactForm = () => {
           className="formControl"
           placeholder={emailStrings.messagePlaceholder}
           onChange={(e) => setMessage(e.target.value)}
+          value={message}
         />
       </div>
       {name && isValid === true ? (
