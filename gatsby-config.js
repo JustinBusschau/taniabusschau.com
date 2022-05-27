@@ -40,5 +40,6 @@ module.exports = {
         uri: process.env.TANIA_BUSSCHAU_GRAPHQL,
       },
     },
+    { resolve: 'gatsby-plugin-gatsby-cloud' },
   ],
 }
