@@ -15,7 +15,7 @@
     "dev": "gatsby clean && gatsby develop"
   },
   "dependencies": {
-    "@apollo/client": "^3.3.21",
+    "@apollo/client": "3.3.21",
     "@contentful/rich-text-react-renderer": "^15.12.1",
     "babel-plugin-styled-components": "^1.13.3",
     "gatsby": "^4.1.4",
