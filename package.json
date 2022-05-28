@@ -23,6 +23,7 @@
     "@contentful/rich-text-react-renderer": "^15.12.1",
     "babel-plugin-styled-components": "^2.0.7",
     "babel-runtime": "^6.26.0",
+    "cross-fetch": "^3.1.5",
     "gatsby": "^4.15.1",
     "gatsby-plugin-apollo": "^4.0.2",
     "gatsby-plugin-gatsby-cloud": "^4.15.0",
