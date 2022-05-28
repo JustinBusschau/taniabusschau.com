@@ -2,7 +2,6 @@ import React from 'react'
 import Navbar from './Navbar'
 import Footer from './Footer'
 import { ThemeProvider } from 'styled-components'
-import Script from './Script'
 import { Theme, GlobalStyle } from '../css'
 
 const Layout = ({ children }) => {
@@ -14,13 +13,6 @@ const Layout = ({ children }) => {
         {children}
         <Footer />
       </ThemeProvider>
-      <Script
-        innerHTMLCode={`
-            document.querySelector('.logo-btn').addEventListener('click', function (){
-              document.querySelector('.nav-links').classList.toggle("show-nav");
-            })
-          `}
-      />
     </main>
   )
 }
