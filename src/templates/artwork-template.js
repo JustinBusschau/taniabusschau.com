@@ -1,5 +1,5 @@
 import React from 'react'
-import { graphql } from 'gatsby'
+import { graphql as gatsbyql } from 'gatsby'
 import Layout from '../components/Layout'
 import { ArtworkWrapper } from '../css'
 import { GatsbyImage, getImage } from 'gatsby-plugin-image'
@@ -146,7 +146,7 @@ const ImageWrapper = styled.article`
   }
 `
 
-export const getArtwork = graphql`
+export const getArtwork = gatsbyql`
   query getArtwork($id: String!) {
     artwork: contentfulArtwork(contentful_id: { eq: $id }) {
       title
