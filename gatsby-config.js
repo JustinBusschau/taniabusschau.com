@@ -26,18 +26,18 @@ module.exports = {
     { resolve: 'gatsby-plugin-sharp' },
     { resolve: 'gatsby-transformer-sharp' },
     {
+      resolve: 'gatsby-plugin-apollo',
+      options: {
+        uri: process.env.TANIA_BUSSCHAU_GRAPHQL,
+      },
+    },
+    {
       resolve: 'gatsby-source-contentful',
       options: {
         // eslint-disable-next-line
         spaceId: process.env.CONTENTFUL_SPACE_ID,
         // eslint-disable-next-line
         accessToken: process.env.CONTENTFUL_ACCESS_TOKEN,
-      },
-    },
-    {
-      resolve: 'gatsby-plugin-apollo',
-      options: {
-        uri: process.env.TANIA_BUSSCHAU_GRAPHQL,
       },
     },
     { resolve: 'gatsby-plugin-gatsby-cloud' },
