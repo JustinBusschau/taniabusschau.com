@@ -4,7 +4,6 @@ import { ContactFormWrapper } from '../../css'
 import { emailStrings } from './ContactStrings'
 import validator from 'validator'
 import { gql, useMutation } from '@apollo/client'
-import gql from 'graphql-tag'
 
 export const REGISTER_VISITOR_INTEREST = gql`
   mutation addVisitorDetails(
@@ -49,7 +48,7 @@ const ContactForm = () => {
   const handleSubmit = (e) => {
     e.preventDefault()
     console.log(`${name}, ${email}, ${message}`)
-    // addVisitorDetails(name, email, message)
+    addVisitorDetails(name, email, message)
   }
 
   return (
