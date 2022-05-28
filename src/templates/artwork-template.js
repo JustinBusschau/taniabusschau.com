@@ -70,6 +70,8 @@ const ArtworkTemplate = ({ data }) => {
   )
 }
 
+export default ArtworkTemplate
+
 const ArtworkTitle = styled.div`
   display: grid;
   margin: auto;
@@ -178,5 +180,3 @@ export const getArtwork = graphql`
     }
   }
 `
-
-export default ArtworkTemplate
