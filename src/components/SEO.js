@@ -21,8 +21,8 @@ const SearchEngineOptimiser = ({ title, description }) => {
       <meta property="og:title" content={siteTitle} />
       <meta property="og:description" content={siteDesc} />
 
-      <link rel="apple-touch-icon-precomposed" href="apple-touch.png" />
-      <link rel="icon" type="image/png" href="favicon.png" />
+      <link rel="apple-touch-icon-precomposed" href="/apple-touch.png" />
+      <link rel="icon" type="image/png" href="/favicon.png" />
       <meta name="application-name" content="taniabusschau.com" />
       <meta name="msapplication-TileColor" content="#FFFFFF" />
       <meta name="msapplication-TileImage" content="mstile.png" />
