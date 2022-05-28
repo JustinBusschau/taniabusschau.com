@@ -26,12 +26,6 @@ module.exports = {
     { resolve: 'gatsby-plugin-sharp' },
     { resolve: 'gatsby-transformer-sharp' },
     {
-      resolve: 'gatsby-plugin-apollo',
-      options: {
-        uri: process.env.TANIA_BUSSCHAU_GRAPHQL,
-      },
-    },
-    {
       resolve: 'gatsby-source-contentful',
       options: {
         // eslint-disable-next-line

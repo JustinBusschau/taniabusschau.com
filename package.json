@@ -19,13 +19,10 @@
     "dev": "gatsby clean && gatsby develop"
   },
   "dependencies": {
-    "@apollo/client": "^3.6.5",
     "@contentful/rich-text-react-renderer": "^15.12.1",
     "babel-plugin-styled-components": "^2.0.7",
     "babel-runtime": "^6.26.0",
-    "cross-fetch": "^3.1.5",
     "gatsby": "^4.15.1",
-    "gatsby-plugin-apollo": "^4.0.2",
     "gatsby-plugin-gatsby-cloud": "^4.15.0",
     "gatsby-plugin-image": "^2.15.0",
     "gatsby-plugin-react-helmet": "^5.15.0",
@@ -35,7 +32,6 @@
     "gatsby-plugin-styled-components": "^5.15.0",
     "gatsby-source-contentful": "^7.13.0",
     "gatsby-transformer-sharp": "^4.15.0",
-    "isomorphic-fetch": "^3.0.0",
     "normalize.css": "^8.0.1",
     "path": "^0.12.7",
     "prop-types": "^15.7.2",
