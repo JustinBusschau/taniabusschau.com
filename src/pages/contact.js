@@ -3,9 +3,9 @@ import Layout from '../components/Layout'
 import StyledHero from '../components/StyledHero'
 import { graphql } from 'gatsby'
 import EmailContact from '../components/Contact/EmailContact'
-import styled from 'styled-components'
 import CurrentExhibit from '../components/Contact/CurrentExhibit'
 import SearchEngineOptimiser from '../components/SEO'
+import { ContactWrapper } from '../css'
 
 const ContactLayout = ({ data }) => {
   return (
@@ -24,14 +24,6 @@ const ContactLayout = ({ data }) => {
 }
 
 export default ContactLayout
-
-const ContactWrapper = styled.div`
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  grid-gap: 20px;
-
-  padding: 2rem;
-`
 
 export const getContactImage = graphql`
   query {

@@ -1,10 +1,12 @@
 import React from 'react'
 import { graphql } from 'gatsby'
 import Layout from '../components/Layout'
-import styled from 'styled-components'
+import Title from '../components/Title'
 import SearchEngineOptimiser from '../components/SEO'
 import StyledHero from '../components/StyledHero'
 import PortfolioList from '../components/Portfolio/PortfolioList'
+import FactDetailEntry from '../components/Common/FactDetailEntry'
+import { DataHeaderStructure, DescriptiveBlurbWrapper } from '../css'
 
 const ExhibitionTemplate = ({ data }) => {
   const {
@@ -24,75 +26,35 @@ const ExhibitionTemplate = ({ data }) => {
     id,
     ...prop,
   }))
+  const webUrl = (
+    <a href={url} target="__ext">
+      {url}
+    </a>
+  )
 
   return (
     <Layout>
       <SearchEngineOptimiser title={name} description={content} />
       <StyledHero image={image} className="post-image" alt={name} />
-      <ExhibitionTitle>
-        <h1>{name}</h1>
-      </ExhibitionTitle>
-      <HeaderStructureWrapper>
-        <p>
-          <DetailLabel>Location</DetailLabel> {location}
-        </p>
-        <p>
-          <DetailLabel>Website</DetailLabel>{' '}
-          <a href={url} target="__ext">
-            {url}
-          </a>
-        </p>
-        <p>
-          <DetailLabel>Start Date</DetailLabel> {startDate}
-        </p>
-        <p>
-          <DetailLabel>End Date</DetailLabel> {endDate}
-        </p>
-        <p>
-          <DetailLabel>Online?</DetailLabel> {onlineOnly ? 'Yes' : 'No'}
-        </p>
-        <p>
-          <DetailLabel>Space type</DetailLabel> {spaceType}
-        </p>
-      </HeaderStructureWrapper>
+      <Title title={name} />
+      <DataHeaderStructure>
+        <FactDetailEntry fact="Location" detail={location} />
+        <FactDetailEntry fact="Website" detail={webUrl} />
+        <FactDetailEntry fact="Start Date" detail={startDate} />
+        <FactDetailEntry fact="End Date" detail={endDate} />
+        <FactDetailEntry fact="Online?" detail={onlineOnly ? 'Yes' : 'No'} />
+        <FactDetailEntry fact="Space type" detail={spaceType} />
+      </DataHeaderStructure>
       {desc && (
-        <DescWrapper>
+        <DescriptiveBlurbWrapper>
           <p className="desc">{desc}</p>
-        </DescWrapper>
+        </DescriptiveBlurbWrapper>
       )}
-      <ExhibitionTitle>
-        <h2>My art on display</h2>
-      </ExhibitionTitle>
+      <Title subtitle="My art on display" />
       <PortfolioList items={itemNodes} type="artwork" />
     </Layout>
   )
 }
-
-const ExhibitionTitle = styled.div`
-  display: grid;
-  margin: auto;
-`
-
-const HeaderStructureWrapper = styled.div`
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-template-rows: auto;
-  align-items: center;
-  justify-items: center;
-  word-break: break-all;
-  margin-top: 3rem;
-`
-
-const DetailLabel = styled.span`
-  font-weight: bold;
-`
-
-const DescWrapper = styled.div`
-  display: grid;
-  margin: auto;
-  padding: 2rem 0 0 0;
-  max-width: 60vw;
-`
 
 export const getExhibition = graphql`
   query getExhibition($id: String!) {
