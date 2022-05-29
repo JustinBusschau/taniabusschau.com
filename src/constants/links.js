@@ -4,6 +4,10 @@ const links = [
     text: 'home',
   },
   {
+    path: '/about/',
+    text: 'bio',
+  },
+  {
     path: '/artworks/',
     text: 'portfolio',
   },

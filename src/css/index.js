@@ -7,6 +7,12 @@ import PageContainerWrapper from './PageContainerWrapper'
 import ArtworkWrapper from './ArtworkWrapper'
 import ContactFormWrapper from './ContactFormWrapper'
 import BannerWrapper from './BannerWrapper'
+import DataHeaderStructure from './DataHeaderStructure'
+import DetailLabel from './DetailLabel'
+import DescriptiveBlurbWrapper from './DescriptiveBlurbWrapper'
+import FactDetailSection from './FactDetailSection'
+import ThumbnailSection from './ThumbnailSection'
+import ContactWrapper from './ContactWrapper'
 
 export {
   GlobalStyle,
@@ -18,4 +24,10 @@ export {
   ArtworkWrapper,
   ContactFormWrapper,
   BannerWrapper,
+  DataHeaderStructure,
+  DetailLabel,
+  DescriptiveBlurbWrapper,
+  FactDetailSection,
+  ThumbnailSection,
+  ContactWrapper,
 }
