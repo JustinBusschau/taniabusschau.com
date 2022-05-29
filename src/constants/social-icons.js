@@ -1,18 +1,20 @@
-import React from "react"
-import FaFacebook from "react-icons/fa/FaFacebook"
-import FaTwitterSquare from "react-icons/fa/FaTwitterSquare"
-import FaSquarespace from "react-icons/fa/FaSquarespace"
-export default [
-  {
-    icon: <FaFacebook />,
-    url: "https://twitter.com/?lang=en",
+import React from 'react'
+import { FaFacebookSquare } from 'react-icons/fa'
+import { FaInstagramSquare } from 'react-icons/fa'
+import { FaTwitterSquare } from 'react-icons/fa'
+const socialIcons = {
+  facebook: {
+    icon: <FaFacebookSquare />,
+    url: 'https://facebook.com/',
   },
-  {
+  instagram: {
+    icon: <FaInstagramSquare />,
+    url: 'https://instagram.com/',
+  },
+  twitter: {
     icon: <FaTwitterSquare />,
-    url: "https://twitter.com/?lang=en",
+    url: 'https://twitter.com/',
   },
-  {
-    icon: <FaSquarespace />,
-    url: "https://twitter.com/?lang=en",
-  },
-]
+}
+
+export default socialIcons
