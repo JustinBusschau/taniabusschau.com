@@ -14,11 +14,7 @@ const PortfolioLayout = ({ data, pageContext }) => {
   return (
     <Layout>
       <SearchEngineOptimiser title="Artworks" />
-      <StyledHero
-        home
-        image={data.portfolioImage}
-        alt={data.portfolioImage.title}
-      />
+      <StyledHero image={data.portfolioImage} alt={data.portfolioImage.title} />
       <section>
         <Title title="My" subtitle="art" />
         <PortfolioList items={itemNodes} type="artwork" />
@@ -36,7 +32,11 @@ export default PortfolioLayout
 
 export const getPortfolio = graphql`
   query getArtworksPortfolio($limit: Int!, $skip: Int!) {
-    items: allContentfulArtwork(skip: $skip, limit: $limit) {
+    items: allContentfulArtwork(
+      skip: $skip
+      limit: $limit
+      sort: { fields: date, order: DESC }
+    ) {
       edges {
         node {
           id: contentful_id
@@ -45,7 +45,7 @@ export const getPortfolio = graphql`
           image {
             gatsbyImageData
           }
-          date
+          date(formatString: "MMM YYYY")
         }
       }
     }

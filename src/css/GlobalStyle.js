@@ -8,8 +8,8 @@ export default createGlobalStyle`
   }
 
   body {
-    background: ${props => props.theme.mainWhite};
-    color: ${props => props.theme.mainBlack};
+    background: ${(props) => props.theme.mainWhite};
+    color: ${(props) => props.theme.mainBlack};
     font-display: swap;
     font-family: "Helvetica", sans-serif;
     font-size: 1rem;
@@ -17,7 +17,7 @@ export default createGlobalStyle`
   }
   h1, h2, h3, h4, h5, h6 {
     font-family: "Impact", sans-serif;
-    letter-spacing: ${props => props.theme.mainSpacing};
+    letter-spacing: ${(props) => props.theme.mainSpacing};
     font-display: swap;
     margin-bottom: 1.25rem;
   }
@@ -30,41 +30,32 @@ export default createGlobalStyle`
     text-decoration: none;
     }
 
-    // .defaultHero {
-    //     min-height: calc(100vh - 62px);
-    //     background: linear-gradient(rgba(63, 208, 212, 0.7), rgba(0, 0, 0, 0.7)),
-    //         url("https://images.ctfassets.net/vjjfz7e8b7p2/Qgk1DFimAGj06474LONkB/56191d6fe2ba7313a7a4d7ea623d2ad8/TaniaInParis.jpeg") center/cover no-repeat;
-    //     display: flex;
-    //     justify-content: center;
-    //     align-items: center;
-    // }
-
     .btn-white,
     .btn-primary {
         text-transform: uppercase;
-        letter-spacing: ${props => props.theme.mainSpacing};
-        color: ${props => props.theme.mainWhite};
-        border: 2px solid ${props => props.theme.mainWhite};
+        letter-spacing: ${(props) => props.theme.mainSpacing};
+        color: ${(props) => props.theme.mainWhite};
+        border: 2px solid ${(props) => props.theme.mainWhite};
         padding: 0.9rem 1.6rem;
         display: inline-block;
-        transition: ${props => props.theme.mainTransition};
+        transition: ${(props) => props.theme.mainTransition};
         cursor: pointer;
     }
 
     .btn-white:hover {
-        background: ${props => props.theme.mainWhite};
-        color: ${props => props.theme.primaryColor};
+        background: ${(props) => props.theme.mainWhite};
+        color: ${(props) => props.theme.primaryColor};
     }
 
     .btn-primary {
-        background: ${props => props.theme.primaryColor};
-        color: ${props => props.theme.mainWhite};
-        border: 2px solid ${props => props.theme.primaryColor};
+        background: ${(props) => props.theme.primaryColor};
+        color: ${(props) => props.theme.mainWhite};
+        border: 2px solid ${(props) => props.theme.primaryColor};
     }
 
     .btn-primary:hover {
         background: transparent;
-        color: ${props => props.theme.primaryColor};
+        color: ${(props) => props.theme.primaryColor};
     }
 
     main {

@@ -6,7 +6,8 @@ import SearchEngineOptimiser from '../components/SEO'
 import StyledHero from '../components/StyledHero'
 import PortfolioList from '../components/Portfolio/PortfolioList'
 import FactDetailEntry from '../components/Common/FactDetailEntry'
-import { DataHeaderStructure, DescriptiveBlurbWrapper } from '../css'
+import RichTextDisplay from '../components/Common/RichTextDisplay'
+import { DataHeaderStructure } from '../css'
 
 const ExhibitionTemplate = ({ data }) => {
   const {
@@ -15,13 +16,14 @@ const ExhibitionTemplate = ({ data }) => {
     startDate,
     endDate,
     content,
+    desc,
     location,
     onlineOnly,
     url,
     myIncludedArtworks,
     spaceType,
   } = data.exhibition
-  const desc = content.content
+  const description = JSON.parse(desc.raw)
   const itemNodes = Object.entries(myIncludedArtworks).map(([id, prop]) => ({
     id,
     ...prop,
@@ -34,7 +36,7 @@ const ExhibitionTemplate = ({ data }) => {
 
   return (
     <Layout>
-      <SearchEngineOptimiser title={name} description={content} />
+      <SearchEngineOptimiser title={name} description={content.content} />
       <StyledHero image={image} className="post-image" alt={name} />
       <Title title={name} />
       <DataHeaderStructure>
@@ -45,11 +47,7 @@ const ExhibitionTemplate = ({ data }) => {
         <FactDetailEntry fact="Online?" detail={onlineOnly ? 'Yes' : 'No'} />
         <FactDetailEntry fact="Space type" detail={spaceType} />
       </DataHeaderStructure>
-      {desc && (
-        <DescriptiveBlurbWrapper>
-          <p className="desc">{desc}</p>
-        </DescriptiveBlurbWrapper>
-      )}
+      {desc && <RichTextDisplay json={description} />}
       <Title subtitle="My art on display" />
       <PortfolioList items={itemNodes} type="artwork" />
     </Layout>
@@ -62,16 +60,19 @@ export const getExhibition = graphql`
       name
       image {
         gatsbyImageData(
-          width: 1250
+          width: 2500
           placeholder: BLURRED
           formats: [AUTO, WEBP, AVIF]
           cropFocus: CENTER
         )
       }
-      startDate(formatString: "DD MMMM YYYY")
-      endDate(formatString: "DD MMMM YYYY")
+      startDate(formatString: "dddd, Do MMMM YYYY")
+      endDate(formatString: "dddd,Do MMMM YYYY")
       content {
         content
+      }
+      desc: description {
+        raw
       }
       location
       onlineOnly

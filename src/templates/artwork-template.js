@@ -5,6 +5,7 @@ import Title from '../components/Title'
 import { ArtworkWrapper } from '../css'
 import { GatsbyImage, getImage } from 'gatsby-plugin-image'
 import SearchEngineOptimiser from '../components/SEO'
+import StyledHero from '../components/StyledHero'
 import FactDetailEntry from '../components/Common/FactDetailEntry'
 import {
   DataHeaderStructure,
@@ -34,6 +35,7 @@ const ArtworkTemplate = ({ data }) => {
   return (
     <Layout>
       <SearchEngineOptimiser title={title} description={content} />
+      <StyledHero image={data.portfolioImage} alt={data.portfolioImage.title} />
       <Title title={title} />
       <DataHeaderStructure>
         <FactDetailSection>
@@ -97,6 +99,17 @@ export const getArtwork = gatsbyql`
           cropFocus: CENTER
         )
       }
+    }
+    portfolioImage: contentfulAsset(
+      contentful_id: { eq: "4zzSNYQr7YKKmc7ABMDJXB" }
+    ) {
+      title
+      gatsbyImageData(
+        width: 1250
+        placeholder: BLURRED
+        formats: [AUTO, WEBP, AVIF]
+        cropFocus: CENTER
+      )
     }
   }
 `

@@ -32,7 +32,11 @@ export default PortfolioLayout
 
 export const getPortfolio = graphql`
   query getExhibitionsPortfolio($limit: Int!, $skip: Int!) {
-    items: allContentfulExhibition(skip: $skip, limit: $limit) {
+    items: allContentfulExhibition(
+      skip: $skip
+      limit: $limit
+      sort: { fields: startDate, order: DESC }
+    ) {
       edges {
         node {
           id: contentful_id
@@ -41,8 +45,7 @@ export const getPortfolio = graphql`
             gatsbyImageData
           }
           name
-          title: name
-          date: startDate(formatString: "DD MMMM YYYY")
+          date: startDate(formatString: "DD MMM YYYY")
         }
       }
     }

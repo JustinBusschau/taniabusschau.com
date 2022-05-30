@@ -4,6 +4,7 @@ import SearchEngineOptimiser from '../components/SEO'
 import StyledHero from '../components/StyledHero'
 import Title from '../components/Title'
 import RichTextDisplay from '../components/Common/RichTextDisplay'
+import { ContentSection } from '../css'
 import socialIcons from '../constants/social-icons.js'
 import { graphql } from 'gatsby'
 
@@ -16,31 +17,31 @@ const BioLayout = ({ data }) => {
   return (
     <Layout>
       <SearchEngineOptimiser title="About" />
-      <StyledHero home image={artist.image} alt={artist.name} />
+      <StyledHero image={artist.image} alt={artist.name} />
       <section>
         <Title title="My" subtitle="bio" />
         <div>
-          <h2>Hi, I'm {artist.name}</h2>
+          <h2 style={{ textAlign: 'center' }}>Hi, I'm {artist.name}</h2>
           <RichTextDisplay json={bio} />
         </div>
       </section>
-      <section>
+      <ContentSection>
         <div>
-          <a href={fbLink}>
-            <span>{socialIcons.facebook.icon}</span>
+          <a style={{ fontSize: '1.5em' }} href={fbLink}>
+            <span>{socialIcons.facebook.icon}</span> {artist.facebook}
           </a>
         </div>
         <div>
-          <a href={igLink}>
-            <span>{socialIcons.instagram.icon}</span>
+          <a style={{ fontSize: '1.5em' }} href={igLink}>
+            <span>{socialIcons.instagram.icon}</span> {artist.instagram}
           </a>
         </div>
         <div>
-          <a href={twLink}>
-            <span>{socialIcons.twitter.icon}</span>
+          <a style={{ fontSize: '1.5em' }} href={twLink}>
+            <span>{socialIcons.twitter.icon}</span> {artist.twitter}
           </a>
         </div>
-      </section>
+      </ContentSection>
     </Layout>
   )
 }

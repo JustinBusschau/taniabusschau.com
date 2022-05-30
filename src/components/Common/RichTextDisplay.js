@@ -1,11 +1,11 @@
 import React from 'react'
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer'
-import styled from 'styled-components'
+import { RichTextWrapper } from '../../css'
 
 const RichTextDisplay = ({ json }) => {
   const options = {
     renderNode: {
-      'embedded-asset-block': node => {
+      'embedded-asset-block': (node) => {
         return (
           <div>
             {/* <h3>this is awesome image</h3> */}
@@ -19,7 +19,7 @@ const RichTextDisplay = ({ json }) => {
           </div>
         )
       },
-      'embedded-entry-block': node => {
+      'embedded-entry-block': (node) => {
         const { title, image, text } = node.data.target.fields
         return (
           <div>
@@ -42,14 +42,5 @@ const RichTextDisplay = ({ json }) => {
     </RichTextWrapper>
   )
 }
-
-const RichTextWrapper = styled.div`
-  word-break: break-all;
-
-  .content-image {
-    display: block;
-    margin: 0 auto;
-  }
-`
 
 export default RichTextDisplay

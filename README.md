@@ -12,4 +12,13 @@ Also added Apollo GraphQL client for dynamic content (though the only thing this
 - Apollo GraphQL client ^3.3.21
 - Enables visitor entry add to spreadsheet via [sheets.best](https://sheets.best/)
 
-## Hosting TBC
+## Preview site on Gatsby Cloud
+
+- JustinBusschau GatsbyJS account via GitHub federated login
+- preview at : https://taniabusschaucom.gtsb.io/ `lis-noir`
+- make sure any required env vars are set in the gatsbyjs console
+- _`NOTE`_ be very sure the `NODE_VERSION` environment variable is set correctly in the gatsbyjs console
+
+## Hosting on Netlify
+
+- deployed on successful build from Gatsby Cloud

@@ -8,7 +8,7 @@ const StyledHero = ({ image, className, alt }) => {
 }
 
 export default styled(StyledHero)`
-  height: ${(props) => (props.home ? '50vh' : '25vh')};
+  height: ${(props) => (props.home ? '80vh' : '25vh')};
   background-position: center;
   background-size: cover;
   display: flex;

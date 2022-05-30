@@ -5,7 +5,7 @@ const links = [
   },
   {
     path: '/about/',
-    text: 'bio',
+    text: 'about',
   },
   {
     path: '/artworks/',
