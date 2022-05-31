@@ -9,6 +9,10 @@ const Navbar = () => {
   const data = useStaticQuery(getLogo)
   const gi = getImage(data.logo)
 
+  const handleClick = () => {
+    document.querySelector('.nav-links').classList.toggle('show-nav')
+  }
+
   return (
     <NavbarWrapper>
       <div className="nav-center">
@@ -21,6 +25,7 @@ const Navbar = () => {
             type="button"
             className="logo-btn"
             aria-label="Open Menu"
+            onClick={handleClick}
           >
             <FaBars className="logo-icon" />
           </button>
