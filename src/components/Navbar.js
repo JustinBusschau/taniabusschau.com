@@ -13,7 +13,7 @@ const Navbar = () => {
     <NavbarWrapper>
       <div className="nav-center">
         <div className="nav-header">
-          <Link to="/" data-cy="logo">
+          <Link to="/">
             <GatsbyImage image={gi} alt={data.logo.title} />
           </Link>
 
@@ -21,7 +21,6 @@ const Navbar = () => {
             type="button"
             className="logo-btn"
             aria-label="Open Menu"
-            data-cy="mobile-button"
           >
             <FaBars className="logo-icon" />
           </button>
@@ -30,11 +29,7 @@ const Navbar = () => {
           {links.map((item, index) => {
             return (
               <li key={index}>
-                <Link
-                  to={item.path}
-                  data-cy={item.text}
-                  activeClassName="navitem-active"
-                >
+                <Link to={item.path} activeClassName="navitem-active">
                   {item.text}
                 </Link>
               </li>

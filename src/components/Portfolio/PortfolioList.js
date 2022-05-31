@@ -5,7 +5,7 @@ import PropTypes from 'prop-types'
 
 const PortfolioList = ({ items, type }) => {
   return (
-    <ArtworksWrapper data-cy="artworks">
+    <ArtworksWrapper>
       {items &&
         items.map((node) => {
           node.image = node.image ? node.image : null
