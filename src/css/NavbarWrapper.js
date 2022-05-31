@@ -18,17 +18,17 @@ const NavbarWrapper = styled.nav`
   }
 
   .logo-icon {
-    color: ${props => props.theme.primaryColor};
+    color: ${(props) => props.theme.primaryColor};
     font-size: 1.5rem;
   }
 
   .navitem-active {
-    background: ${props => props.theme.offWhite};
+    background: ${(props) => props.theme.offWhite};
   }
 
   .nav-links {
     list-style-type: none;
-    transition: ${props => props.theme.mainTransition};
+    transition: ${(props) => props.theme.mainTransition};
     height: 0;
     overflow: hidden;
   }
@@ -38,17 +38,17 @@ const NavbarWrapper = styled.nav`
     padding: 1rem 1.25rem;
     text-decoration: none;
     text-transform: capitalize;
-    color: ${props => props.theme.mainBlack};
-    transition: ${props => props.theme.mainTransition};
+    color: ${(props) => props.theme.mainBlack};
+    transition: ${(props) => props.theme.mainTransition};
     font-weight: bold;
-    letter-spacing: ${props => props.theme.mainSpacing};
+    letter-spacing: ${(props) => props.theme.mainSpacing};
   }
   .nav-links a:hover {
-    color: ${props => props.theme.primaryColor};
+    color: ${(props) => props.theme.primaryColor};
   }
 
   .show-nav {
-    height: 216px;
+    height: 272px;
   }
 
   .nav-social-links {
@@ -81,13 +81,13 @@ const NavbarWrapper = styled.nav`
       line-height: 0;
     }
     .nav-social-links a {
-      color: ${props => props.theme.primaryColor};
+      color: ${(props) => props.theme.primaryColor};
       margin: 0 0.5rem;
       font-size: 1.2rem;
-      transition: ${props => props.theme.mainTransition};
+      transition: ${(props) => props.theme.mainTransition};
     }
     .nav-social-links a:hover {
-      color: ${props => props.theme.mainBlack};
+      color: ${(props) => props.theme.mainBlack};
       transform: translateY(-5px);
     }
   }
