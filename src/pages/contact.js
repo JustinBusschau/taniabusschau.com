@@ -25,6 +25,7 @@ const ContactLayout = ({ data }) => {
 
 export default ContactLayout
 
+// TODO: Get Tania to do a specific artwork for this
 export const getContactImage = graphql`
   query {
     contactImage: contentfulAsset(

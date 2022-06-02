@@ -22,3 +22,12 @@ Also added Apollo GraphQL client for dynamic content (though the only thing this
 ## Hosting on Netlify
 
 - deployed on successful build from Gatsby Cloud
+
+## TODO
+
+- we have a number of instances where we fetch specific entries from Contentful. These should be made more generic so that Tania can change them whenever she likes
+  - `src/Components/Navbar.js` : currently fetching the "Tania In Paris" Asset using contentful_id: `x4PpkVtYfEyk5hyOfzQUm`
+  - `src/pages/contact.js` : currently fetching the image of the envelopes as an Asset using contentful_id: `7nHV7ETDHkTQhDIjJFF5dZ`
+- we are currently using the `useAsPortfolioCover` image for the artwork banner image as well. We might want to separate as two distinct banners
+- we are currently using the `useAsExhibitionCover` image for the exhibition list banner image as well. We might want to separate as two distinct banners
+- we are currently using a 'borrowed' image for the contact us page. Ask Tania to either do an artwork or take a photo of her own to replace this

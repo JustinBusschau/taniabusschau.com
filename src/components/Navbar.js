@@ -48,7 +48,7 @@ const Navbar = () => {
 
 const getLogo = graphql`
   query {
-    logo: contentfulAsset(contentful_id: { eq: "38HbP6SfXG3wgk54qTEK3H" }) {
+    logo: contentfulAsset(contentful_id: { eq: "x4PpkVtYfEyk5hyOfzQUm" }) {
       gatsbyImageData(
         width: 180
         placeholder: BLURRED

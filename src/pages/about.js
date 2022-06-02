@@ -9,7 +9,8 @@ import socialIcons from '../constants/social-icons.js'
 import { graphql } from 'gatsby'
 
 const BioLayout = ({ data }) => {
-  const { artist } = data
+  const { artistData } = data
+  const artist = artistData.edges[0].node
   const bio = JSON.parse(artist.artistBio.raw)
   const fbLink = `${socialIcons.facebook.url}${artist.facebook}`
   const igLink = `${socialIcons.instagram.url}${artist.instagram}`
@@ -49,18 +50,26 @@ const BioLayout = ({ data }) => {
 export default BioLayout
 
 export const getBio = graphql`
-  query getArtistBio($id: String! = "15jwOBqpxqSAOy2eOO4S0m") {
-    artist: contentfulPerson(contentful_id: { eq: $id }) {
-      id: contentful_id
-      name
-      artistBio {
-        raw
-      }
-      facebook
-      instagram
-      twitter
-      image {
-        gatsbyImageData
+  query {
+    artistData: allContentfulPerson(
+      filter: { useAsFeaturedArtist: { eq: true } }
+      limit: 1
+      sort: { fields: createdAt, order: ASC }
+    ) {
+      edges {
+        node {
+          id: contentful_id
+          name
+          artistBio {
+            raw
+          }
+          facebook
+          instagram
+          twitter
+          image {
+            gatsbyImageData
+          }
+        }
       }
     }
   }

@@ -28,6 +28,7 @@ const ArtworkTemplate = ({ data }) => {
     content,
   } = data.artwork
   const { desc } = content || {}
+  const bannerImage = data.portfolioImage.edges[0].node
   const gi = getImage(image)
   const tn = getImage(thumbnail)
 
@@ -35,7 +36,7 @@ const ArtworkTemplate = ({ data }) => {
   return (
     <Layout>
       <SearchEngineOptimiser title={title} description={content} />
-      <StyledHero image={data.portfolioImage} alt={data.portfolioImage.title} />
+      <StyledHero image={bannerImage.image} alt={bannerImage.title} />
       <Title title={title} />
       <DataHeaderStructure>
         <FactDetailSection>
@@ -100,16 +101,24 @@ export const getArtwork = gatsbyql`
         )
       }
     }
-    portfolioImage: contentfulAsset(
-      contentful_id: { eq: "4zzSNYQr7YKKmc7ABMDJXB" }
+    portfolioImage: allContentfulArtwork(
+      filter: { useAsPortfolioCover: { eq: true } }
+      sort: { fields: date, order: DESC }
+      limit: 1
     ) {
-      title
-      gatsbyImageData(
-        width: 1250
-        placeholder: BLURRED
-        formats: [AUTO, WEBP, AVIF]
-        cropFocus: CENTER
-      )
+      edges {
+        node {
+          title
+          image {
+            gatsbyImageData(
+              width: 1250
+              placeholder: BLURRED
+              formats: [AUTO, WEBP, AVIF]
+              cropFocus: CENTER
+            )
+          }
+        }
+      }
     }
   }
 `

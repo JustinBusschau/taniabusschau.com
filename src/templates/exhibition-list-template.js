@@ -10,11 +10,12 @@ import { graphql } from 'gatsby'
 const PortfolioLayout = ({ data, pageContext }) => {
   const { currentPage, numExhibitionPages } = pageContext
   const itemNodes = data.items.edges.map((x) => x.node)
+  const bannerImage = data.portfolioImage.edges[0].node
 
   return (
     <Layout>
       <SearchEngineOptimiser title="Exhibitions" />
-      <StyledHero image={data.portfolioImage} alt={data.portfolioImage.title} />
+      <StyledHero image={bannerImage.image} alt={bannerImage.title} />
       <section>
         <Title title="My art on" subtitle="exhibit" />
         <PortfolioList items={itemNodes} type="exhibition" />
@@ -49,16 +50,24 @@ export const getPortfolio = graphql`
         }
       }
     }
-    portfolioImage: contentfulAsset(
-      contentful_id: { eq: "BVtxNntDZPtKBnRB0Fd23" }
+    portfolioImage: allContentfulExhibition(
+      filter: { useAsExhibitionBanner: { eq: true } }
+      limit: 1
+      sort: { fields: startDate, order: DESC }
     ) {
-      title
-      gatsbyImageData(
-        width: 1250
-        placeholder: BLURRED
-        formats: [AUTO, WEBP, AVIF]
-        cropFocus: CENTER
-      )
+      edges {
+        node {
+          name
+          image {
+            gatsbyImageData(
+              width: 1250
+              placeholder: BLURRED
+              formats: [AUTO, WEBP, AVIF]
+              cropFocus: CENTER
+            )
+          }
+        }
+      }
     }
   }
 `
