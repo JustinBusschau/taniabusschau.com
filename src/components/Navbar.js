@@ -7,7 +7,7 @@ import { GatsbyImage, getImage } from 'gatsby-plugin-image'
 
 const Navbar = () => {
   const data = useStaticQuery(getLogo)
-  const gi = getImage(data.logo)
+  const gi = getImage(data.logo.edges[0].node.siteBannerImage)
 
   const handleClick = () => {
     document.querySelector('.nav-links').classList.toggle('show-nav')
@@ -18,7 +18,7 @@ const Navbar = () => {
       <div className="nav-center">
         <div className="nav-header">
           <Link to="/">
-            <GatsbyImage image={gi} alt={data.logo.title} />
+            <GatsbyImage image={gi} alt={data.logo.edges[0].node.name} />
           </Link>
 
           <button
@@ -48,13 +48,23 @@ const Navbar = () => {
 
 const getLogo = graphql`
   query {
-    logo: contentfulAsset(contentful_id: { eq: "x4PpkVtYfEyk5hyOfzQUm" }) {
-      gatsbyImageData(
-        width: 180
-        placeholder: BLURRED
-        formats: [AUTO, WEBP, AVIF]
-      )
-      title
+    logo: allContentfulPerson(
+      filter: { useAsFeaturedArtist: { eq: true } }
+      limit: 1
+      sort: { fields: createdAt, order: ASC }
+    ) {
+      edges {
+        node {
+          name
+          siteBannerImage {
+            gatsbyImageData(
+              width: 180
+              placeholder: BLURRED
+              formats: [AUTO, WEBP, AVIF]
+            )
+          }
+        }
+      }
     }
   }
 `
