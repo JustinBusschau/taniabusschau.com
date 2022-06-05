@@ -1,12 +1,21 @@
 import React from 'react'
 import Title from '../Title'
+import RichTextDisplay from '../Common/RichTextDisplay'
 import styled from 'styled-components'
 import { graphql, useStaticQuery, Link } from 'gatsby'
 
 const CurrentExhibit = () => {
   const { nextExhibit } = useStaticQuery(getNextOrCurrentExhibition)
-  const { spaceType, name, startDate, endDate, url, location, content, slug } =
-    nextExhibit
+  const {
+    spaceType,
+    name,
+    startDate,
+    endDate,
+    url,
+    location,
+    description,
+    slug,
+  } = nextExhibit
   const subtitle = `in the ${spaceType}`
   const linkDestination = `/exhibition/${slug}`
 
@@ -25,7 +34,7 @@ const CurrentExhibit = () => {
           </a>
         </p>
         <h3>{location}</h3>
-        <p>{content.content}</p>
+        <RichTextDisplay json={description.raw} />
         <Link to={linkDestination}>More information here</Link>
       </NextEventWrapper>
     </section>
@@ -52,8 +61,8 @@ const getNextOrCurrentExhibition = graphql`
       endDate(formatString: "DD MMM YYYY")
       url
       location
-      content {
-        content
+      description {
+        raw
       }
       slug
     }

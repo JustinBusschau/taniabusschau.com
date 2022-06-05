@@ -15,7 +15,6 @@ const ExhibitionTemplate = ({ data }) => {
     image,
     startDate,
     endDate,
-    content,
     desc,
     location,
     onlineOnly,
@@ -36,7 +35,7 @@ const ExhibitionTemplate = ({ data }) => {
 
   return (
     <Layout>
-      <SearchEngineOptimiser title={name} description={content.content} />
+      <SearchEngineOptimiser title={name} description={name} />
       <StyledHero image={image} className="post-image" alt={name} />
       <Title title={name} />
       <DataHeaderStructure>
@@ -47,7 +46,7 @@ const ExhibitionTemplate = ({ data }) => {
         <FactDetailEntry fact="Online?" detail={onlineOnly ? 'Yes' : 'No'} />
         <FactDetailEntry fact="Space type" detail={spaceType} />
       </DataHeaderStructure>
-      {desc && <RichTextDisplay json={description} />}
+      <RichTextDisplay json={description} />
       <Title subtitle="My art on display" />
       <PortfolioList items={itemNodes} type="artwork" />
     </Layout>
@@ -68,9 +67,6 @@ export const getExhibition = graphql`
       }
       startDate(formatString: "dddd, Do MMMM YYYY")
       endDate(formatString: "dddd,Do MMMM YYYY")
-      content {
-        content
-      }
       desc: description {
         raw
       }
