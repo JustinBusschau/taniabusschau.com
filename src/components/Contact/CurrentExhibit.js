@@ -18,6 +18,7 @@ const CurrentExhibit = () => {
   } = nextExhibit
   const subtitle = `in the ${spaceType}`
   const linkDestination = `/exhibition/${slug}`
+  const desc = JSON.parse(description.raw)
 
   return (
     <section>
@@ -34,7 +35,7 @@ const CurrentExhibit = () => {
           </a>
         </p>
         <h3>{location}</h3>
-        <RichTextDisplay json={description.raw} />
+        <RichTextDisplay json={desc} />
         <Link to={linkDestination}>More information here</Link>
       </NextEventWrapper>
     </section>
