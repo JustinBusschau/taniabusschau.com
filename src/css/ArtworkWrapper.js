@@ -2,11 +2,11 @@ import styled from 'styled-components'
 
 const ArtworkWrapper = styled.section`
   padding: 4rem 0;
-  word-break: break-all;
+  word-break: normal;
 
   h2 {
     text-transform: capitalize;
-    letter-spacing: ${props => props.theme.mainSpacing};
+    letter-spacing: ${(props) => props.theme.mainSpacing};
     margin-bottom: 1rem;
   }
 
@@ -31,7 +31,7 @@ const ArtworkWrapper = styled.section`
     margin-bottom: 2rem;
   }
   .image {
-    box-shadow: ${props => props.theme.lightShadow};
+    box-shadow: ${(props) => props.theme.lightShadow};
   }
 
   .info {
@@ -45,7 +45,7 @@ const ArtworkWrapper = styled.section`
     text-transform: capitalize;
   }
   .icon {
-    color: ${props => props.theme.primaryColor};
+    color: ${(props) => props.theme.primaryColor};
     font-size: 1.4rem;
     margin-right: 0.5rem;
   }
