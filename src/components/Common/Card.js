@@ -4,7 +4,7 @@ import { Link } from 'gatsby'
 import { GatsbyImage, getImage } from 'gatsby-plugin-image'
 
 const Card = ({ node, type }) => {
-  const { slug, title, image, date } = node
+  const { slug, title, name, image, date } = node
   const gi = getImage(image)
 
   return (
@@ -22,7 +22,7 @@ const Card = ({ node, type }) => {
         {date && <h6 className="date">{date}</h6>}
       </div>
       <div className="footer">
-        <h4>{title}</h4>
+        <h4>{title || name}</h4>
       </div>
     </CardWrapper>
   )
