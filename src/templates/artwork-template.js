@@ -15,18 +15,8 @@ import {
 } from '../css'
 
 const ArtworkTemplate = ({ data }) => {
-  const {
-    title,
-    media,
-    size,
-    price,
-    framed,
-    sold,
-    date,
-    image,
-    thumbnail,
-    content,
-  } = data.artwork
+  const { title, media, size, price, framed, sold, image, thumbnail, content } =
+    data.artwork
   const { desc } = content || {}
   const bannerImage = data.portfolioImage.edges[0].node
   const gi = getImage(image)
@@ -40,7 +30,6 @@ const ArtworkTemplate = ({ data }) => {
       <Title title={title} />
       <DataHeaderStructure>
         <FactDetailSection>
-          <FactDetailEntry fact="Completed" detail={date} />
           <FactDetailEntry fact="Media" detail={media} />
           <FactDetailEntry fact="Size" detail={size} />
           <FactDetailEntry fact="Price" detail={artPrice} />
@@ -81,7 +70,6 @@ export const getArtwork = gatsbyql`
       content {
         desc: content
       }
-      date(formatString: "MMMM YYYY")
       image {
         gatsbyImageData(
           placeholder: BLURRED
