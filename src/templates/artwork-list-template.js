@@ -46,7 +46,6 @@ export const getPortfolio = graphql`
           image {
             gatsbyImageData
           }
-          date(formatString: "MMM YYYY")
         }
       }
     }
