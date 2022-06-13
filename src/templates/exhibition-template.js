@@ -39,12 +39,14 @@ const ExhibitionTemplate = ({ data }) => {
       <StyledHero image={image} className="post-image" alt={name} />
       <Title title={name} />
       <DataHeaderStructure>
-        <FactDetailEntry fact="Location" detail={location} />
-        <FactDetailEntry fact="Website" detail={webUrl} />
-        <FactDetailEntry fact="Start Date" detail={startDate} />
-        <FactDetailEntry fact="End Date" detail={endDate} />
-        <FactDetailEntry fact="Online?" detail={onlineOnly ? 'Yes' : 'No'} />
-        <FactDetailEntry fact="Space type" detail={spaceType} />
+        {location && <FactDetailEntry fact="Location" detail={location} />}
+        {webUrl && <FactDetailEntry fact="Website" detail={webUrl} />}
+        {startDate && <FactDetailEntry fact="Start Date" detail={startDate} />}
+        {endDate && <FactDetailEntry fact="End Date" detail={endDate} />}
+        {onlineOnly && (
+          <FactDetailEntry fact="Online?" detail={onlineOnly ? 'Yes' : 'No'} />
+        )}
+        {spaceType && <FactDetailEntry fact="Space type" detail={spaceType} />}
       </DataHeaderStructure>
       <RichTextDisplay json={description} />
       <Title subtitle="My art on display" />

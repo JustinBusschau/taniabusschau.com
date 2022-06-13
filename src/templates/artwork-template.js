@@ -30,11 +30,13 @@ const ArtworkTemplate = ({ data }) => {
       <Title title={title} />
       <DataHeaderStructure>
         <FactDetailSection>
-          <FactDetailEntry fact="Media" detail={media} />
-          <FactDetailEntry fact="Size" detail={size} />
-          <FactDetailEntry fact="Price" detail={artPrice} />
-          <FactDetailEntry fact="Framed" detail={framed ? 'Yes' : 'No'} />
-          <FactDetailEntry fact="Sold" detail={sold ? 'Yes' : 'No'} />
+          {media && <FactDetailEntry fact="Media" detail={media} />}
+          {size && <FactDetailEntry fact="Size" detail={size} />}
+          {artPrice && <FactDetailEntry fact="Price" detail={artPrice} />}
+          {framed && (
+            <FactDetailEntry fact="Framed" detail={framed ? 'Yes' : 'No'} />
+          )}
+          {sold && <FactDetailEntry fact="Sold" detail={sold ? 'Yes' : 'No'} />}
         </FactDetailSection>
         <ThumbnailSection>
           <div className="img-container">
