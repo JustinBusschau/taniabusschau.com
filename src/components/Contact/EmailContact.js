@@ -41,7 +41,6 @@ const ContactForm = () => {
         data-netlify="true"
         netlify
         method="POST"
-        target="dummyframe"
       >
         <div>
           <label htmlFor="name">Name</label>
