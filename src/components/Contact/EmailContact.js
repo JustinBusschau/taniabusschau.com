@@ -40,6 +40,7 @@ const ContactForm = () => {
       <form
         name="websiteEmailContact"
         data-netlify="true"
+        netlify
         onSubmit={handleSubmit}
         action={formAction}
         method="POST"
