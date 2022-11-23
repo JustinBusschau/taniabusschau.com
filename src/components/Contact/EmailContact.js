@@ -40,7 +40,6 @@ const ContactForm = () => {
         name="websiteEmailContact"
         data-netlify="true"
         netlify
-        onSubmit={handleSubmit}
         method="POST"
         target="dummyframe"
       >
