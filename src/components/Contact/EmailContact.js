@@ -28,7 +28,6 @@ const ContactForm = () => {
     setTimeout(() => resetForm(), 1000)
   }
 
-  const formAction = `https://sheet.best${process.env.SHEET_BEST_URL}`
   return (
     <div>
       <iframe
@@ -42,7 +41,6 @@ const ContactForm = () => {
         data-netlify="true"
         netlify
         onSubmit={handleSubmit}
-        action={formAction}
         method="POST"
         target="dummyframe"
       >
