@@ -38,6 +38,8 @@ const ContactForm = () => {
         style={{ display: 'none' }}
       ></iframe>
       <form
+        name="websiteEmailContact"
+        data-netlify="true"
         onSubmit={handleSubmit}
         action={formAction}
         method="POST"
