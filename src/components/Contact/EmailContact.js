@@ -42,6 +42,7 @@ const ContactForm = () => {
         netlify
         method="POST"
       >
+        <input type="hidden" name="form-name" value="websiteEmailContact" />
         <div>
           <label htmlFor="name">Name</label>
           <input
