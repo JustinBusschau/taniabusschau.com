@@ -42,6 +42,7 @@ const ContactForm = () => {
         netlify
         netlify-honeypot="honorific"
         method="POST"
+        onSubmit={handleSubmit}
       >
         <input type="hidden" name="form-name" value="websiteEmailContact" />
         <div style={{ display: 'none' }}>
