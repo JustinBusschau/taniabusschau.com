@@ -40,11 +40,21 @@ const ContactForm = () => {
         name="websiteEmailContact"
         data-netlify="true"
         netlify
-        netlify-honeypot="terms-and-conditions-accepted"
+        netlify-honeypot="honorific"
         method="POST"
       >
         <input type="hidden" name="form-name" value="websiteEmailContact" />
-        <input type="hidden" name="terms-and-conditions-accepted" />
+        <div style={{ display: 'none' }}>
+          <label htmlFor="honorific">Honorific</label>
+          <input
+            type="text"
+            name="honorific"
+            id="honorific"
+            className="formControl"
+            placeholder="Honorific"
+            value=""
+          />
+        </div>
         <div>
           <label htmlFor="name">Name</label>
           <input
