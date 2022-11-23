@@ -40,9 +40,11 @@ const ContactForm = () => {
         name="websiteEmailContact"
         data-netlify="true"
         netlify
+        netlify-honeypot="terms-and-conditions-accepted"
         method="POST"
       >
         <input type="hidden" name="form-name" value="websiteEmailContact" />
+        <input type="hidden" name="terms-and-conditions-accepted" />
         <div>
           <label htmlFor="name">Name</label>
           <input
