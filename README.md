@@ -11,7 +11,7 @@ Also added Apollo GraphQL client for dynamic content (though the only thing this
 
 - ~Apollo GraphQL client ^3.3.21~
 - Apollo removed as I couldn't get it co-habiting with Gatsby on Gatsy Cloud builds
-- Enables visitor entry add to spreadsheet via [sheets.best](https://sheets.best/)
+- ~Enabled visitor entry add to spreadsheet via [sheet.best](https://sheet.best/)~ Disables since sheet.best switched to a $9.99 monthly charge
 
 ## Preview site on Gatsby Cloud
 
@@ -25,6 +25,12 @@ Also added Apollo GraphQL client for dynamic content (though the only thing this
 - deployed on successful build from Gatsby Cloud
 - netlify URL at https://taniabusschau.netlify.app/
 - will redirect taniabusschau.com to this URL once green-lit from Tania
+
+## Troubleshooting the contact form
+
+- First, with the Developer Tools open, fill in the contact form and submit. You should see the name, message and email logged in the console
+- Log in to Netlify and go to `AfterMyCoffee` > `taniabusschau.com` > `Site Settings` > `Forms`
+- Make sure the notification for new form submissions on the `websiteEmailContact` form are sent to tania's GMail account
 
 ## TODO
 
