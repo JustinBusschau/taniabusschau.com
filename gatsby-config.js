@@ -20,7 +20,6 @@ module.exports = {
   },
   plugins: [
     { resolve: 'gatsby-plugin-typescript' },
-    { resolve: 'gatsby-plugin-react-helmet' },
     { resolve: 'gatsby-plugin-styled-components' },
     { resolve: 'gatsby-plugin-image' },
     { resolve: 'gatsby-plugin-sharp' },
