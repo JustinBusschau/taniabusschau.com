@@ -10,6 +10,7 @@
     "node": ">=18.2.0"
   },
   "scripts": {
+    "buildify": "gatsby build && node -p 'process.env'",
     "build": "gatsby build",
     "develop": "gatsby develop",
     "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,md}\"",
