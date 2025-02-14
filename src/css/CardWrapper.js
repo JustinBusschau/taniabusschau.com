@@ -1,83 +1,52 @@
 import styled from 'styled-components'
 
 const CardWrapper = styled.article`
-  box-shadow: ${(props) => props.theme.lightShadow};
-  transition: ${(props) => props.theme.mainTransition};
-
-  display: grid;
-  grid-template-rows: 200px auto;
-
-  word-break: normal;
-
-  &:hover {
-    box-shadow: ${(props) => props.theme.darkShadow};
-  }
+  position: relative;
+  box-shadow: var(--lightShadow);
+  margin: 2rem 0;
+  max-width: 100%;
+  transition: var(--mainTransition);
 
   .img-container {
     position: relative;
-    background: ${(props) => props.theme.primaryColor};
-    transition: ${(props) => props.theme.mainTransition};
     overflow: hidden;
-    border-radius: 8px; /* Added */
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Added */
 
+    &:hover .card-info-overlay {
+      opacity: 1;
+    }
   }
 
-  .img-container:hover .link {
-    opacity: 1;
-  }
-
-  .img-container:hover .img {
-    opacity: 0.3;
-  }
-
-  .img {
+  .card-image {
+    transition: var(--mainTransition);
+    display: block;
     width: 100%;
-    transition: ${(props) => props.theme.mainTransition};
   }
 
-  .link {
+  .card-info-overlay {
     position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     opacity: 0;
-    text-transform: uppercase;
-    letter-spacing: ${(props) => props.theme.mainSpacing};
-    color: ${(props) => props.theme.mainWhite};
-    border: 2px solid ${(props) => props.theme.mainWhite};
-    padding: 0.5rem 0.7rem;
-    display: inline-block;
-    transition: ${(props) => props.theme.mainTransition};
-    cursor: pointer;
-  }
-
-  .link:hover {
-    background: ${(props) => props.theme.mainWhite};
-    color: ${(props) => props.theme.primaryColor};
-  }
-
-  .footer {
+    transition: var(--mainTransition);
     padding: 1rem;
     text-align: center;
   }
 
-  .footer h4 {
-    text-transform: capitalize;
-    margin-bottom: 0;
+  .card-info-text {
+    font-size: 1.2rem;
+    margin: 0.5rem 0;
   }
 
-  .date {
-    position: absolute;
-    left: 0;
-    top: 75%;
-    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.9)); /* Updated */
-    padding: 0.3rem 0.5rem;
-    border-top-right-radius: 1rem;
-    border-bottom-right-radius: 1rem;
-    text-transform: capitalize;
-    color: ${(props) => props.theme.mainWhite};
-    font-weight: 500; /*Added*/
+  @media screen and (min-width: 576px) {
+    width: calc(50% - 1rem);
   }
 `
 

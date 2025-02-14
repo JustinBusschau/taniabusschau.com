@@ -1,6 +1,19 @@
 import styled from 'styled-components'
 
 const NavbarWrapper = styled.nav`
+  padding: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  .logo {
+    text-align: left;
+    font-family: 'Marck Script', cursive;
+    font-size: 2rem;
+    margin: 0;
+    padding: 0;
+  }
+
   .nav-header {
     display: flex;
     justify-content: space-between;
@@ -8,88 +21,53 @@ const NavbarWrapper = styled.nav`
     padding: 1rem 1.25rem;
   }
 
-  .logo-btn {
+  .nav-btn {
     background: transparent;
     border: none;
+    cursor: pointer;
     outline: none;
   }
-  .logo-btn:hover {
-    cursor: pointer;
-  }
 
-  .logo-icon {
-    color: ${(props) => props.theme.primaryColor};
+  .nav-icon {
     font-size: 1.5rem;
-  }
-
-  .navitem-active {
-    background: ${(props) => props.theme.offWhite};
+    color: ${props => props.theme.primaryColor};
   }
 
   .nav-links {
     list-style-type: none;
-    transition: ${(props) => props.theme.mainTransition};
-    height: 0;
+    transition: ${props => props.theme.mainTransition};
+    height: ${props => (props.isOpen ? 'auto' : '0')};
     overflow: hidden;
-  }
 
-  .nav-links a {
-    display: block;
-    padding: 1rem 1.25rem;
-    text-decoration: none;
-    text-transform: capitalize;
-    color: ${(props) => props.theme.mainBlack};
-    transition: ${(props) => props.theme.mainTransition};
-    font-weight: bold;
-    letter-spacing: ${(props) => props.theme.mainSpacing};
-  }
-  .nav-links a:hover {
-    color: ${(props) => props.theme.primaryColor};
-  }
+    a {
+      display: block;
+      text-decoration: none;
+      padding: 1rem 1.25rem;
+      color: ${props => props.theme.mainBlack};
+      transition: ${props => props.theme.mainTransition};
+      font-weight: bold;
+      text-transform: capitalize;
+      letter-spacing: ${props => props.theme.mainSpacing};
 
-  .show-nav {
-    height: 272px;
-  }
+      &:hover {
+        color: ${props => props.theme.primaryColor};
+      }
+    }
 
-  .nav-social-links {
-    display: none;
+    @media screen and (min-width: 576px) {
+      height: auto;
+      display: flex;
+      margin-left: 2rem;
+
+      a {
+        padding: 0.5rem 1rem;
+      }
+    }
   }
 
   @media screen and (min-width: 576px) {
     padding: 0 2rem;
-  }
-
-  @media screen and (min-width: 992px) {
-    .nav-center {
-      max-width: 1170px;
-      margin: 0 auto;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-
-    .logo-btn {
-      display: none;
-    }
-
-    .nav-links {
-      height: auto;
-      display: flex;
-    }
-    .nav-social-links {
-      display: flex;
-      line-height: 0;
-    }
-    .nav-social-links a {
-      color: ${(props) => props.theme.primaryColor};
-      margin: 0 0.5rem;
-      font-size: 1.2rem;
-      transition: ${(props) => props.theme.mainTransition};
-    }
-    .nav-social-links a:hover {
-      color: ${(props) => props.theme.mainBlack};
-      transform: translateY(-5px);
-    }
+    flex-wrap: wrap;
   }
 `
 
