@@ -26,23 +26,20 @@ const BioLayout = ({ data }) => {
           <RichTextDisplay json={bio} />
         </div>
       </section>
-      <ContentSection>
-        <div>
-          <a style={{ fontSize: '1.5em' }} href={fbLink}>
-            <span>{socialIcons.facebook.icon}</span> {artist.facebook}
-          </a>
-        </div>
-        <div>
-          <a style={{ fontSize: '1.5em' }} href={igLink}>
-            <span>{socialIcons.instagram.icon}</span> {artist.instagram}
-          </a>
-        </div>
-        <div>
-          <a style={{ fontSize: '1.5em' }} href={twLink}>
-            <span>{socialIcons.twitter.icon}</span> {artist.twitter}
-          </a>
-        </div>
-      </ContentSection>
+      <div className="social-links">
+        <a href={fbLink} className="social-link">
+          <span className="icon">{socialIcons.facebook.icon}</span>
+          <span className="text">{artist.facebook}</span>
+        </a>
+        <a href={igLink} className="social-link">
+          <span className="icon">{socialIcons.instagram.icon}</span>
+          <span className="text">{artist.instagram}</span>
+        </a>
+        <a href={twLink} className="social-link">
+          <span className="icon">{socialIcons.twitter.icon}</span>
+          <span className="text">{artist.twitter}</span>
+        </a>
+      </div>
     </Layout>
   )
 }

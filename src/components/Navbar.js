@@ -17,9 +17,12 @@ const Navbar = () => {
     <NavbarWrapper>
       <div className="nav-center">
         <div className="nav-header">
-          <Link to="/">
-            <GatsbyImage image={gi} alt={data.logo.edges[0].node.name} />
-          </Link>
+          <div className="brand">
+            <Link to="/">
+              <GatsbyImage image={gi} alt={data.logo.edges[0].node.name} />
+            </Link>
+            <h1 className="artist-name">Tania Busschau</h1>
+          </div>
 
           <button
             type="button"

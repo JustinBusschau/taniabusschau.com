@@ -11,9 +11,9 @@ export default createGlobalStyle`
     background: ${(props) => props.theme.mainWhite};
     color: ${(props) => props.theme.mainBlack};
     font-display: swap;
-    font-family: "Helvetica", sans-serif;
-    font-size: 1rem;
-    line-height: 1.4;
+    font-family: 'Quicksand', sans-serif;
+    font-size: 1.1rem;
+    line-height: 1.6;
   }
   h1, h2, h3, h4, h5, h6 {
     font-family: "Impact", sans-serif;

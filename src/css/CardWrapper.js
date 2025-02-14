@@ -18,6 +18,9 @@ const CardWrapper = styled.article`
     background: ${(props) => props.theme.primaryColor};
     transition: ${(props) => props.theme.mainTransition};
     overflow: hidden;
+    border-radius: 8px; /* Added */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Added */
+
   }
 
   .img-container:hover .link {
@@ -68,12 +71,13 @@ const CardWrapper = styled.article`
     position: absolute;
     left: 0;
     top: 75%;
-    background: ${(props) => props.theme.primaryColor};
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.9)); /* Updated */
     padding: 0.3rem 0.5rem;
     border-top-right-radius: 1rem;
     border-bottom-right-radius: 1rem;
     text-transform: capitalize;
     color: ${(props) => props.theme.mainWhite};
+    font-weight: 500; /*Added*/
   }
 `
 
