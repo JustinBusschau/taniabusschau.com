@@ -48,7 +48,7 @@ const ArtworkTemplate = ({ data }) => {
           </div>
           {showModal && (
             <div className="modal" onClick={() => setShowModal(false)}>
-              <GatsbyImage image={gi} alt={title} className="modal-image" />
+              <GatsbyImage image={getImage(image)} alt={title} className="modal-image" />
             </div>
           )}
         </ThumbnailSection>
