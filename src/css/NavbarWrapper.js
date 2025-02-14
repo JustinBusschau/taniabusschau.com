@@ -7,6 +7,12 @@ const NavbarWrapper = styled.nav`
   align-items: center;
   justify-content: space-between;
 
+  .nav-center {
+    width: 100%;
+    max-width: 1170px;
+    margin: 0 auto;
+  }
+
   .nav-header {
     display: flex;
     justify-content: space-between;
@@ -14,11 +20,25 @@ const NavbarWrapper = styled.nav`
     padding: 1rem 1.25rem;
   }
 
-  .nav-btn {
+  .logo-btn {
     background: transparent;
     border: none;
     cursor: pointer;
     outline: none;
+    @media screen and (min-width: 992px) {
+      display: none;
+    }
+  }
+
+  .logo-icon {
+    color: var(--primaryColor);
+    font-size: 1.5rem;
+  }
+
+  .brand {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
   }
 
   .nav-icon {
@@ -28,33 +48,44 @@ const NavbarWrapper = styled.nav`
 
   .nav-links {
     list-style-type: none;
-    transition: ${props => props.theme.mainTransition};
-    height: ${props => (props.isOpen ? 'auto' : '0')};
+    transition: var(--mainTransition);
+    height: 0;
     overflow: hidden;
+
+    &.show-nav {
+      height: auto;
+    }
 
     a {
       display: block;
       text-decoration: none;
       padding: 1rem 1.25rem;
-      color: ${props => props.theme.mainBlack};
-      transition: ${props => props.theme.mainTransition};
+      color: var(--mainBlack);
+      transition: var(--mainTransition);
       font-weight: bold;
       text-transform: capitalize;
-      letter-spacing: ${props => props.theme.mainSpacing};
+      letter-spacing: var(--mainSpacing);
 
       &:hover {
-        color: ${props => props.theme.primaryColor};
+        color: var(--primaryColor);
       }
     }
 
-    @media screen and (min-width: 576px) {
+    @media screen and (min-width: 992px) {
       height: auto;
       display: flex;
-      margin-left: 2rem;
+      margin-left: auto;
 
       a {
         padding: 0.5rem 1rem;
       }
+    }
+  }
+
+  @media screen and (min-width: 992px) {
+    .nav-center {
+      display: flex;
+      align-items: center;
     }
   }
 
