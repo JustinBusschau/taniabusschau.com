@@ -1,3 +1,4 @@
+
 import styled from 'styled-components'
 
 const NavbarWrapper = styled.nav`
@@ -5,14 +6,6 @@ const NavbarWrapper = styled.nav`
   display: flex;
   align-items: center;
   justify-content: space-between;
-
-  .logo {
-    text-align: left;
-    font-family: 'Marck Script', cursive;
-    font-size: 2rem;
-    margin: 0;
-    padding: 0;
-  }
 
   .nav-header {
     display: flex;

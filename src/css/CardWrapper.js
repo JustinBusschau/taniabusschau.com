@@ -1,14 +1,19 @@
+
 import styled from 'styled-components'
 
 const CardWrapper = styled.article`
-  position: relative;
   box-shadow: var(--lightShadow);
-  margin: 2rem 0;
-  max-width: 100%;
   transition: var(--mainTransition);
+  width: 300px;
+  height: 300px;
+  margin: 2rem 1rem;
+  border-radius: 10px;
+  overflow: hidden;
 
   .img-container {
     position: relative;
+    width: 100%;
+    height: 100%;
     overflow: hidden;
 
     &:hover .card-info-overlay {
@@ -17,9 +22,10 @@ const CardWrapper = styled.article`
   }
 
   .card-image {
-    transition: var(--mainTransition);
-    display: block;
     width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: var(--mainTransition);
   }
 
   .card-info-overlay {
@@ -43,10 +49,6 @@ const CardWrapper = styled.article`
   .card-info-text {
     font-size: 1.2rem;
     margin: 0.5rem 0;
-  }
-
-  @media screen and (min-width: 576px) {
-    width: calc(50% - 1rem);
   }
 `
 
