@@ -40,9 +40,17 @@ const ArtworkTemplate = ({ data }) => {
           {sold && <FactDetailEntry fact="Sold" detail={sold ? 'Yes' : 'No'} />}
         </FactDetailSection>
         <ThumbnailSection>
-          <div className="img-container">
+          <div className="img-container" onClick={() => setShowModal(!showModal)}>
             <GatsbyImage image={tn} alt={title} />
+            <div className="overlay">
+              <span>Click to {showModal ? 'close' : 'enlarge'}</span>
+            </div>
           </div>
+          {showModal && (
+            <div className="modal" onClick={() => setShowModal(false)}>
+              <GatsbyImage image={gi} alt={title} className="modal-image" />
+            </div>
+          )}
         </ThumbnailSection>
       </DataHeaderStructure>
       {desc && (
@@ -50,19 +58,6 @@ const ArtworkTemplate = ({ data }) => {
           <p className="desc">{content.desc}</p>
         </DescriptiveBlurbWrapper>
       )}
-      <ArtworkWrapper>
-        <div className="thumbnail-container" onClick={() => setShowModal(!showModal)}>
-          <GatsbyImage image={gi} alt={title} className="thumbnail" />
-          <div className="overlay">
-            <span>Click to {showModal ? 'close' : 'enlarge'}</span>
-          </div>
-        </div>
-        {showModal && (
-          <div className="modal" onClick={() => setShowModal(false)}>
-            <GatsbyImage image={gi} alt={title} className="modal-image" />
-          </div>
-        )}
-      </ArtworkWrapper>
     </Layout>
   )
 }
