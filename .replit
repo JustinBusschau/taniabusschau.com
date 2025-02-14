@@ -1,4 +1,4 @@
-modules = ["nodejs-18"]
+modules = ["nodejs-18", "nodejs-20"]
 run = "npm run dev"
 
 [nix]
@@ -6,3 +6,8 @@ channel = "stable-24_05"
 
 [deployment]
 run = ["sh", "-c", "npm run dev"]
+
+[[ports]]
+localPort = 8000
+externalPort = 80
+exposeLocalhost = true
