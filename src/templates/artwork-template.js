@@ -15,6 +15,7 @@ import {
 } from '../css'
 
 const ArtworkTemplate = ({ data }) => {
+  const [showModal, setShowModal] = React.useState(false);
   const { title, media, size, price, framed, sold, image, thumbnail, content } =
     data.artwork
   const { desc } = content || {}
@@ -50,9 +51,17 @@ const ArtworkTemplate = ({ data }) => {
         </DescriptiveBlurbWrapper>
       )}
       <ArtworkWrapper>
-        <div className="center">
-          <GatsbyImage image={gi} alt={title} className="image" />
+        <div className="thumbnail-container" onClick={() => setShowModal(!showModal)}>
+          <GatsbyImage image={gi} alt={title} className="thumbnail" />
+          <div className="overlay">
+            <span>Click to {showModal ? 'close' : 'enlarge'}</span>
+          </div>
         </div>
+        {showModal && (
+          <div className="modal" onClick={() => setShowModal(false)}>
+            <GatsbyImage image={gi} alt={title} className="modal-image" />
+          </div>
+        )}
       </ArtworkWrapper>
     </Layout>
   )
