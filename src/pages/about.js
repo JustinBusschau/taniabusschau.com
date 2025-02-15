@@ -19,23 +19,23 @@ const BioLayout = ({ data }) => {
     <Layout>
       <SearchEngineOptimiser title="About" />
       <StyledHero image={artist.image} alt={artist.name} />
-      <section>
+      <ContentSection>
         <Title title="My" subtitle="bio" />
         <div>
           <h2 style={{ textAlign: 'center' }}>Hi, I'm {artist.name}</h2>
           <RichTextDisplay json={bio} />
         </div>
-      </section>
-      <div className="social-links">
-        <a href={fbLink} className="social-link">
-          <span className="icon">{socialIcons.facebook.icon}</span>
-          <span className="text">{artist.facebook}</span>
-        </a>
-        <a href={igLink} className="social-link">
-          <span className="icon">{socialIcons.instagram.icon}</span>
-          <span className="text">{artist.instagram}</span>
-        </a>
-      </div>
+        <div className="social-links">
+          <a href={fbLink} className="social-link">
+            <span className="icon">{socialIcons.facebook.icon}</span>
+            <span className="text">{artist.facebook}</span>
+          </a>
+          <a href={igLink} className="social-link">
+            <span className="icon">{socialIcons.instagram.icon}</span>
+            <span className="text">{artist.instagram}</span>
+          </a>
+        </div>
+      </ContentSection>
     </Layout>
   )
 }
