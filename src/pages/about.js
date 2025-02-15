@@ -35,10 +35,6 @@ const BioLayout = ({ data }) => {
           <span className="icon">{socialIcons.instagram.icon}</span>
           <span className="text">{artist.instagram}</span>
         </a>
-        <a href={twLink} className="social-link">
-          <span className="icon">{socialIcons.twitter.icon}</span>
-          <span className="text">{artist.twitter}</span>
-        </a>
       </div>
     </Layout>
   )
